@@ -1,6 +1,12 @@
 # Databricks Data Engineer Associate Certification Lab
 
-## Connect with me:
+> Independent educational resource; not endorsed by Databricks, Inc. "Databricks" and "Delta Lake" are trademarks of their respective owners.
+
+## Author
+
+<img src="https://dataengineer.wiki/download/profilepicture.jpg" alt="Jakub Lasak" width="80" style="border-radius: 50%;" />
+
+**Jakub Lasak** — Helping you interview like seniors, execute like seniors, and think like seniors.
 
 - 🔗 [LinkedIn](https://www.linkedin.com/in/jrlasak/) - Databricks projects and tips
 - 📬 [Substack Newsletter](https://dataengineer.wiki/substack) - Exclusive content for Data Engineers
@@ -58,24 +64,20 @@ Look for upcoming Databricks Festival here - https://community.databricks.com/t5
 
 ## How to Start
 
-Follow these three simple steps to begin:
+1. **Create a Databricks Account**
+   - Sign up for a [Databricks Free Edition account](https://www.databricks.com/learn/free-edition) if you don't already have one.
+   - Familiarize yourself with the workspace, clusters, and notebook interface.
 
-### Step 1: Get Databricks Free Edition
+2. **Import this repository to Databricks**
+   - In Databricks, go to the Workspace sidebar and click the "Repos" section, click "Add Repo".
+     - Alternatively, go to your personal folder, click "create" and select "git folder".
+   - Paste the GitHub URL for this repository.
+   - Authenticate with GitHub if prompted, and select the main branch.
+   - The repo will appear as a folder in your workspace, allowing you to edit, run notebooks, and manage files directly from Databricks.
+   - For more details, see the official Databricks documentation: [Repos in Databricks](https://docs.databricks.com/repos/index.html).
 
-1. Go to [databricks.com/learn/free-edition](https://www.databricks.com/learn/free-edition).
-2. Sign up for the **Free Edition**. This gives you access to all the necessary tools, including serverless compute and Unity Catalog.
+3. Open the `notebooks/` folder and run `00_Setup_Environment.py` to create the Unity Catalog infrastructure and generate data.
 
-### Step 2: Import This Lab into Databricks
+4. Follow the numbered notebooks (`01` to `06`) to build the pipeline.
 
-1. In your Databricks workspace, navigate to **Workspace** > **Repos**.
-2. Click **Add Repo**.
-3. For the Git repository URL, paste: `https://github.com/jrlasak/databricks_data_engineer_associate_cert_prep`.
-4. Click **Create Repo**.
-
-### Step 3: Begin the Lab
-
-1. Once the repo is cloned, navigate to the `notebooks/` directory.
-2. Open and run the `00_Setup_Environment.py` notebook to configure your workspace.
-3. Proceed through the notebooks in numerical order, starting with `01_Environment_Setup_Unity_Catalog.py`.
-
-Each notebook contains exercises marked with `TODO` and corresponding solutions for you to check your work. Good luck!
+   Each exercise includes a `TODO` area for your code and a commented-out solution for verification.

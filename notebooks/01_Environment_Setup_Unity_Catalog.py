@@ -365,10 +365,10 @@ print("Granted read-only access to data_analysts on gold schema")
 # ✅ SOLUTION: Data Analysts - Gold Read-Only
 
 # spark.sql(f"""
-#     GRANT SELECT ON SCHEMA {CATALOG_NAME}.{GOLD_SCHEMA} TO `data_engineers`
+#     GRANT SELECT ON SCHEMA {CATALOG_NAME}.{GOLD_SCHEMA} TO `data_analysts`
 # """)
 
-# print("✅ Granted read-only access to data_engineers on gold schema")
+# print("✅ Granted read-only access to data_analysts on gold schema")
 
 # COMMAND ----------
 

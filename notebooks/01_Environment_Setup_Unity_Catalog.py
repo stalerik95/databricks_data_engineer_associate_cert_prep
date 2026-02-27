@@ -1,9 +1,12 @@
 # Databricks notebook source
 # MAGIC %md
 # MAGIC # Notebook 01: Environment Setup & Unity Catalog
-# MAGIC **Exam Coverage**: Sections 1 (Databricks Lakehouse Platform) & 5 (Data Governance)
+# MAGIC **Exam Coverage**: Sections 1 (Databricks platform concepts) & 5 (Data Governance)
 # MAGIC **Duration**: 30-45 minutes
 # MAGIC ---
+# MAGIC ⚠️ **Outdated terminology note (2026 exam alignment)**: Older materials (and some labs) say *"Lakehouse Platform"*.
+# MAGIC Newer Databricks materials often use **Databricks Data Intelligence Platform** and **Lakeflow** branding.
+# MAGIC The technical concepts in this notebook are still relevant; just translate the naming when you study.
 # MAGIC ## Learning Objectives
 # MAGIC By the end of this notebook, you will be able to:
 # MAGIC - Understand Unity Catalog's three-level namespace (catalog.schema.table)
@@ -457,12 +460,12 @@ display(spark.sql(f"SHOW GRANTS ON SCHEMA {CATALOG_NAME}.{BRONZE_SCHEMA}"))
 # MAGIC | **Startup Time** | Instant | 3-5 minutes |
 # MAGIC | **Configuration** | Automatic | Manual |
 # MAGIC | **Scaling** | Auto | Manual/auto rules |
-# MAGIC | **Use Case** | Ad-hoc, development | Production, specific configs |
+# MAGIC | **Use Case** | Many SQL/ETL workloads where supported | Workloads needing custom libs/configs or specific compute controls |
 # MAGIC | **Cost** | Per query | Per uptime |
 # MAGIC ### Best Practices
-# MAGIC - ✅ Use for development and exploration
-# MAGIC - ✅ Use for ad-hoc queries
-# MAGIC - ❌ Not ideal for long-running batch jobs (use custom clusters)
+# MAGIC - ✅ Prefer serverless when it meets workload requirements (common default in newer workspaces)
+# MAGIC - ✅ Use custom clusters when you need specific Spark configs, libraries, instance types, or networking controls
+# MAGIC - ⚠️ The “serverless vs cluster” decision is increasingly **capability- and policy-driven** (feature availability varies by cloud/workspace/SKU)
 # MAGIC
 # MAGIC ### We're going to use serverless for this lab, as this is the only option in Databricks Free Edition
 
@@ -503,3 +506,11 @@ display(spark.sql(f"SHOW GRANTS ON SCHEMA {CATALOG_NAME}.{BRONZE_SCHEMA}"))
 # MAGIC ---
 # MAGIC **🎉 Notebook Complete!** 
 # MAGIC You've mastered Unity Catalog basics. Save your work and proceed to Notebook 02.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 2026 terminology refresh (Unity Catalog + compute)
+# MAGIC - **Branding**: “Lakehouse Platform” (older) → **Databricks Data Intelligence Platform** (newer)
+# MAGIC - **Pipelines**: “DLT / Delta Live Tables” (older framing) → often **Lakeflow Declarative Pipelines** (newer framing)
+# MAGIC - **Compute**: Serverless is increasingly the default where available; still learn when/why you’d choose a classic cluster

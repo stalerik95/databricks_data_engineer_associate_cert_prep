@@ -14,7 +14,10 @@
 # MAGIC - Calculate customer lifetime value (LTV) with RFM segmentation
 # MAGIC - Implement product performance ranking
 # MAGIC - Build funnel analysis from event data
-# MAGIC - Optimize Gold tables with Z-ordering and partitioning
+# MAGIC - Optimize Gold tables with partitioning and Z-ordering
+# MAGIC 
+# MAGIC ⚠️ **Outdated optimization note (2026 exam alignment)**: Newer Databricks guidance may emphasize **liquid clustering** for some workloads.
+# MAGIC This notebook uses **Z-ordering** because it’s still widely referenced and commonly tested, but be ready to recognize both approaches.
 # MAGIC ---
 
 # COMMAND ----------
@@ -31,7 +34,7 @@
 # MAGIC | **Structure** | Denormalized (optimized for queries) |
 # MAGIC | **Calculations** | Pre-aggregated (computed once) |
 # MAGIC | **Partitioning** | Time-series optimized |
-# MAGIC | **Indexing** | Z-ordered for co-location |
+# MAGIC | **Indexing / Clustering** | Z-ordered or liquid clustered for co-location |
 # MAGIC | **Names** | Business-friendly terminology |
 # MAGIC ### Common Gold Patterns
 # MAGIC 1. **Time-series aggregations**: Daily/weekly/monthly summaries
@@ -603,6 +606,9 @@ print(f"✅ Created Gold table: {PRODUCT_PERFORMANCE_TABLE}")
 # MAGIC %md
 # MAGIC ## Section 6: Optimize with Z-Ordering
 # MAGIC **Z-ordering** co-locates related data for faster queries.
+# MAGIC 
+# MAGIC ⚠️ **Outdated wording note (2026)**: In some newer runtimes/workspaces, you may see **liquid clustering** recommended instead of (or alongside) heavy Z-order usage.
+# MAGIC For the exam, focus on the intent: *reduce file skipping work by co-locating frequently-filtered columns*.
 # MAGIC ### When to Use
 # MAGIC | Optimization | Best For | Example |
 # MAGIC |--------------|----------|--------|
@@ -724,3 +730,10 @@ display(spark.sql(f"""
 # MAGIC ---
 # MAGIC **🎉 Notebook Complete!**
 # MAGIC The Gold layer is complete with optimized analytics tables ready for BI tools and dashboards. Proceed to Notebook 05.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 2026 terminology refresh (optimization)
+# MAGIC - **Z-ordering** (`OPTIMIZE ... ZORDER BY`) remains important to recognize.
+# MAGIC - Newer material may additionally test **liquid clustering** concepts; treat them as alternative ways to improve locality/file skipping.

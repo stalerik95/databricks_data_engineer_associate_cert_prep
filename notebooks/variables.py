@@ -14,6 +14,10 @@
 
 # MAGIC %md
 # MAGIC ## Unity Catalog Configuration
+# MAGIC 
+# MAGIC ⚠️ **Terminology update (2026 exam alignment)**: This repo uses a `DLT_SCHEMA` / `dlt_pipeline` naming convention from **Delta Live Tables (DLT)** era labs.
+# MAGIC In newer Databricks curriculum/exam wording, you’ll often see this area discussed under **Lakeflow** (e.g., *Lakeflow Declarative Pipelines*).
+# MAGIC We keep the variable name as-is so the rest of the lab notebooks continue to run unchanged.
 
 # COMMAND ----------
 
@@ -29,6 +33,13 @@ GOLD_SCHEMA = "03_gold"
 
 # DLT-specific schema (for Delta Live Tables pipeline)
 DLT_SCHEMA = "dlt_pipeline"
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Quick mapping (legacy → newer wording)
+# MAGIC - **Delta Live Tables (DLT)** (older naming in many labs) → **Lakeflow Declarative Pipelines** (newer course/exam framing)
+# MAGIC - **Jobs** (older UI + docs) → **Workflows / Lakeflow Jobs** (newer wording; capabilities depend on workspace + SKU)
 
 # COMMAND ----------
 

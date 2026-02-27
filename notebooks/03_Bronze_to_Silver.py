@@ -19,6 +19,9 @@
 # MAGIC %md
 # MAGIC ## Section 1: Introduction to Medallion Architecture
 # MAGIC The Medallion Architecture organizes data into three layers:
+# MAGIC 
+# MAGIC ⚠️ **Outdated terminology note (2026 exam alignment)**: The *Bronze/Silver/Gold* pattern is still widely used, but newer Databricks curriculum may describe end-to-end pipelines under **Lakeflow** branding.
+# MAGIC The transformations you practice here map directly to those newer pipeline concepts—only the packaging/terminology shifts.
 # MAGIC ### 🥉 Bronze Layer (Raw)
 # MAGIC - **Purpose**: Exact copy of source data
 # MAGIC - **Quality**: May contain duplicates, nulls, invalid data
@@ -1027,3 +1030,10 @@ display(spark.sql(f"""
 # MAGIC ---
 # MAGIC **🎉 Notebook Complete!**
 # MAGIC The Silver layer is populated with clean, validated data ready for business analytics. Proceed to Notebook 04 for Gold layer transformations.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 2026 terminology refresh (processing)
+# MAGIC - “Bronze → Silver” transformations are often discussed as part of **Lakeflow** pipeline patterns in newer material.
+# MAGIC - The core skills are unchanged: window functions, streaming joins, and Delta `MERGE` for SCD2 still show up frequently.

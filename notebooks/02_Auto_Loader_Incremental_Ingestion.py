@@ -4,6 +4,8 @@
 # MAGIC **Exam Coverage**: Section 2 (ELT with Spark SQL and Python)
 # MAGIC **Duration**: 45-60 minutes
 # MAGIC ---
+# MAGIC ⚠️ **Outdated terminology note (2026 exam alignment)**: Newer Databricks curriculum often frames ingestion under **Lakeflow** (e.g., *Lakeflow Connect*).
+# MAGIC **Auto Loader** (`cloudFiles`) is still a key ingestion primitive, but you may see it described as part of Lakeflow’s ingestion story rather than a standalone feature.
 # MAGIC ## Learning Objectives
 # MAGIC By the end of this notebook, you will be able to:
 # MAGIC - Use Auto Loader to incrementally ingest JSON files
@@ -790,3 +792,20 @@ display(spark.sql(f"""
 # MAGIC ---
 # MAGIC **🎉 Notebook Complete!**
 # MAGIC You've mastered Auto Loader and incremental ingestion. All bronze tables are populated. Proceed to Notebook 03 to transform this data into the Silver layer.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 2026 terminology refresh (ingestion)
+# MAGIC - **Auto Loader** (`cloudFiles`) is still common, but newer materials may group it under **Lakeflow Connect** concepts.
+# MAGIC - **Streaming triggers**: `availableNow=True` remains a common “process what’s there then stop” micro-batch pattern.
+# MAGIC - **COPY INTO** is still a core batch incremental pattern; just be aware newer platform guidance may emphasize managed orchestration/deployment around it.
+
+# COMMAND ----------
+
+# (Optional) Quick environment check (safe to skip)
+try:
+    spark_version = spark.conf.get("spark.databricks.clusterUsageTags.sparkVersion")
+    print(f"Runtime Spark version tag: {spark_version}")
+except Exception:
+    print("Runtime Spark version tag not available in this environment")

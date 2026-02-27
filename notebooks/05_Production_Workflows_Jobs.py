@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Notebook 06: Production Workflows & Jobs
+# MAGIC # Notebook 05: Production Workflows & Jobs
 # MAGIC
 # MAGIC **Exam Coverage**: Section 4 (Production Pipelines)
 # MAGIC
@@ -21,14 +21,17 @@
 
 # MAGIC %md
 # MAGIC ## Section 1: Introduction to Databricks Jobs
-# MAGIC **Databricks Jobs** provide orchestration for notebooks, Python scripts, and JARs.
+# MAGIC **Databricks Jobs / Workflows** provide orchestration for notebooks, Python scripts, and JARs.
+# MAGIC 
+# MAGIC ⚠️ **Outdated terminology note (2026 exam alignment)**: The UI and docs increasingly use **Workflows** and you may see **Lakeflow Jobs** in newer course/exam wording.
+# MAGIC The core concepts (tasks, dependencies/DAGs, parameters, retries, monitoring) are the same.
 # MAGIC ### 🎯 Key Concepts
 # MAGIC **Job Components**
 # MAGIC | Component | Purpose | Example |
 # MAGIC |-----------|---------|--------|
 # MAGIC | **Task** | Unit of work | Notebook, Python script, JAR |
 # MAGIC | **Dependency** | Execution order | Task B runs after Task A |
-# MAGIC | **Cluster** | Compute resources | Job cluster, all-purpose cluster |
+# MAGIC | **Compute** | Execution resources | Job cluster, all-purpose cluster, serverless (where available) |
 # MAGIC | **Schedule** | When to run | Manual, cron, triggered |
 # MAGIC | **Parameters** | Runtime config | Environment, date, mode |
 # MAGIC ### Job Types
@@ -38,10 +41,8 @@
 # MAGIC 4. **Scheduled Job**: Cron-based scheduling
 # MAGIC ### ⚠️ Free Edition Limitations
 # MAGIC **Important restrictions:**
-# MAGIC - ❌ Maximum **5 tasks** per workflow
-# MAGIC - ❌ No job clusters (must use all-purpose clusters)
-# MAGIC - ❌ No advanced scheduling
-# MAGIC - ❌ Limited concurrency (single-node)
+# MAGIC - ⚠️ Free/Community editions and trials have **SKU-dependent limits** that can change over time
+# MAGIC - ⚠️ If you study for the exam, focus on the *concepts* (task graphs, retries, compute choices) and verify current limits in your own workspace
 # MAGIC
 # MAGIC **For production**: Full Databricks workspace recommended.
 
@@ -612,9 +613,8 @@ except:
 # MAGIC - Debugging techniques
 # MAGIC
 # MAGIC **6. Free Edition Limits**
-# MAGIC - 5 task maximum
-# MAGIC - No job clusters
-# MAGIC - Limited scheduling
+# MAGIC - ⚠️ These limits are time/SKU dependent — verify in your workspace
+# MAGIC - Exam focus: understand the difference between **all-purpose**, **job**, and **serverless** execution (where supported)
 # MAGIC
 # MAGIC ### ✅ Exam Checklist
 # MAGIC Can you:
@@ -636,6 +636,14 @@ except:
 # MAGIC
 # MAGIC **🎉 Notebook Complete!**
 # MAGIC You've learned production job orchestration. Create your multi-task workflow in the UI to see it in action!
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## 2026 terminology refresh (workflows + deployment)
+# MAGIC - **Jobs** (older) → **Workflows** (newer UI wording); you may also see **Lakeflow Jobs** in newer materials.
+# MAGIC - **Compute choices**: be ready for questions comparing all-purpose vs job compute vs serverless execution.
+# MAGIC - **UI vs deployment**: creating jobs in the UI still works, but newer best practice is often “deploy workflows as code” using **Databricks Asset Bundles (DAB)**.
 
 # COMMAND ----------
 

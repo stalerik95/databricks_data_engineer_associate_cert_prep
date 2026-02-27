@@ -45,7 +45,9 @@ spark.sql(f"USE CATALOG {CATALOG_NAME}")
 # MAGIC - **01_bronze**: Raw, unprocessed data tables
 # MAGIC - **02_silver**: Cleaned and conformed data tables
 # MAGIC - **03_gold**: Business-level aggregations and analytics tables
-# MAGIC - **dlt_pipeline**: Delta Live Tables pipeline objects
+# MAGIC - **dlt_pipeline**: *(Legacy naming)* pipeline-related objects (older labs call this **Delta Live Tables / DLT**)
+# MAGIC 
+# MAGIC ⚠️ **Outdated terminology note (2026 exam alignment)**: In newer Databricks course/exam wording, pipeline development is often framed under **Lakeflow** (e.g., *Lakeflow Declarative Pipelines*). The schema name here is kept for backward compatibility with the rest of this lab.
 
 # COMMAND ----------
 
@@ -175,3 +177,15 @@ print("="*70)
 # MAGIC -- DROP CATALOG IF EXISTS ${CATALOG_NAME} CASCADE;
 # MAGIC ```
 # MAGIC After dropping the catalog, you can re-run this notebook to recreate the environment from scratch.
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # 2026 terminology refresh (what changed)
+# MAGIC This lab is still valid technically, but some **names in Databricks curriculum/UI have evolved**.
+# MAGIC 
+# MAGIC - **Delta Live Tables (DLT)** → often discussed as **Lakeflow Declarative Pipelines** in newer material
+# MAGIC - **Jobs** → often referred to as **Workflows / Lakeflow Jobs**
+# MAGIC - **Cluster-first thinking** → newer guidance is increasingly **serverless-first** where available (SQL, some job tasks)
+# MAGIC 
+# MAGIC Keep using this notebook to create the objects; just translate the terminology when you see newer exam questions.
